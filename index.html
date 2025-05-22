@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Color Palette Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Color Palette Generator</h1>
+
+    <!-- User Inputs -->
+    <section class="controls">
+      <label for="site-type">Choose website type:</label>
+      <select id="site-type">
+        <option value="portfolio">Portfolio</option>
+        <option value="ecommerce">E-commerce</option>
+        <option value="blog">Blog</option>
+        <option value="tech">Tech</option>
+        <option value="food">Food</option>
+      </select>
+
+      <label for="base-color">Choose a base color:</label>
+      <input type="color" id="base-color" value="#3498db" />
+
+      <button id="generate-btn">Generate Palette</button>
+    </section>
+
+    <!-- Output Palette -->
+    <section class="palette-output">
+      <h2>Your Palette:</h2>
+      <div class="colors" id="colors">
+        <!-- Colors will be injected here -->
+      </div>
+      <button id="save-palette">Save This Palette</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
