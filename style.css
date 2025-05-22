@@ -104,3 +104,11 @@ h1, h2 {
 #save-palette:hover {
   background-color: #27ae60;
 }
+.footer {
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  text-align: center;
+  background-color: rgb(197, 160, 111);
+}
