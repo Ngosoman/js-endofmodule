@@ -112,3 +112,21 @@ h1, h2 {
   text-align: center;
   background-color: rgb(197, 160, 111);
 }
+.base {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, red, black, white, green, blue, indigo, violet, sienna);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorPass 3.5s linear infinite alternate;
+}
+@keyframes colorPass {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
