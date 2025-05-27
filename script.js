@@ -160,3 +160,49 @@ function hslToHex(h, s, l) {
   return `#${r}${g}${b}`;
 }
 
+document.getElementById('save-palette').addEventListener('click', () => {
+  const colorDivs = document.querySelectorAll('#colors div');
+  const palette = Array.from(colorDivs).map(div => div.style.backgroundColor);
+
+  if (palette.length > 0) {
+    savePalette(palette);
+    alert('Palette saved!');
+  } else {
+    alert('No colors to save!');
+  }
+});
+
+function savePalette(palette) {
+  const saved = JSON.parse(localStorage.getItem('savedPalettes')) || [];
+  saved.push(palette);
+  localStorage.setItem('savedPalettes', JSON.stringify(saved));
+}
+function getSavedPalettes() {
+  return JSON.parse(localStorage.getItem('savedPalettes')) || [];
+}
+
+function showSavedPalettes() {
+  const container = document.getElementById('savedPalettesContainer');
+  container.innerHTML = ''; // Clear before showing
+
+  const palettes = getSavedPalettes();
+
+  if (palettes.length === 0) {
+    container.innerHTML = '<p>No saved palettes yet.</p>';
+    return;
+  }
+
+  palettes.forEach((palette, index) => {
+    const paletteDiv = document.createElement('div');
+    paletteDiv.classList.add('palette-preview');
+
+    palette.forEach(color => {
+      const colorBox = document.createElement('div');
+      colorBox.classList.add('color-box');
+      colorBox.style.backgroundColor = color;
+      paletteDiv.appendChild(colorBox);
+    });
+
+    container.appendChild(paletteDiv);
+  });
+}
