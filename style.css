@@ -116,7 +116,7 @@ h1, h2 {
   font-family: 'Segoe UI', sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  background: linear-gradient(90deg, red, black, white, green, blue, indigo, violet, sienna);
+  background: linear-gradient(90deg, black, white, green, blue, sienna);
   background-size: 400% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -143,5 +143,21 @@ h1, h2 {
   cursor: pointer;
 }
 .ssp:hover {
+  background-color: #27ae60;
+}
+.delete-btn {
+  margin-left: 10px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+  height: fit-content;
+}
+
+.delete-btn:hover {
   background-color: #27ae60;
 }

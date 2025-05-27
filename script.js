@@ -206,3 +206,43 @@ function showSavedPalettes() {
     container.appendChild(paletteDiv);
   });
 }
+
+function showSavedPalettes() {
+  const container = document.getElementById('savedPalettesContainer');
+  container.innerHTML = ''; // Clear container
+
+  const palettes = getSavedPalettes();
+
+  if (palettes.length === 0) {
+    container.innerHTML = '<p>No saved palettes yet.</p>';
+    return;
+  }
+
+  palettes.forEach((palette, index) => {
+    const paletteDiv = document.createElement('div');
+    paletteDiv.classList.add('palette-preview');
+
+    // Show color boxes
+    palette.forEach(color => {
+      const colorBox = document.createElement('div');
+      colorBox.classList.add('color-box');
+      colorBox.style.backgroundColor = color;
+      paletteDiv.appendChild(colorBox);
+    });
+
+    // Add delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.onclick = () => deletePalette(index);
+    paletteDiv.appendChild(deleteBtn);
+
+    container.appendChild(paletteDiv);
+  });
+}
+function deletePalette(index) {
+  let palettes = getSavedPalettes();
+  palettes.splice(index, 1); // Remove that palette
+  localStorage.setItem('savedPalettes', JSON.stringify(palettes));
+  showSavedPalettes(); // Refresh display
+}
